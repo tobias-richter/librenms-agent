@@ -4,7 +4,7 @@
 # extend postfixdetailed /etc/snmp/postfixdetailed
 
 # The cache file to use.
-my $cache='/var/cache/postfixdetailed';
+my $cache='/var/cache/librenms/postfixdetailed';
 
 # the location of pflogsumm
 my $pflogsumm='/usr/bin/env pflogsumm';
