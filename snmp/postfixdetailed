@@ -7,7 +7,7 @@
 my $cache='/var/cache/librenms/postfixdetailed';
 
 # the location of pflogsumm
-my $pflogsumm='/usr/bin/env pflogsumm';
+my $pflogsumm='sudo /usr/bin/env pflogsumm';
 
 #totals
 #    847   received                 = received
