@@ -41,7 +41,7 @@
 
 
 # the URL to fetch, change as needed
-url="http://localhost/status?full"
+url="http://localhost/fpm-status"
 opts=""
 
 # netdata
