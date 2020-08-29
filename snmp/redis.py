@@ -21,7 +21,7 @@ for opt, arg in opts:
 
 shell_cmd = "redis-cli info"
 if auth_param:
-    shell_cmd = "redis-cli %s info" % (auth_param)
+    shell_cmd = "redis-cli %s --no-auth-warning info" % (auth_param)
 
 all_data = subprocess.Popen(shell_cmd, shell=True, stdout=subprocess.PIPE).stdout.read().split(b'\n')
 
