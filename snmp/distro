@@ -35,12 +35,19 @@ elif [ "${OS}" = "Linux" ] ; then
       DIST="Oracle"
     elif [ -f /etc/rockstor-release ]; then
       DIST="Rockstor"
+    elif [ -f /etc/rocky-release ]; then
+      DIST="Rocky"
     else
       DIST="RedHat"
     fi
 
     #PSEUDONAME=$(cat /etc/redhat-release | sed s/.*\(// | sed s/\)//)
     REV=$(cat /etc/redhat-release | sed s/.*release\ // | sed s/\ .*//)
+
+  elif [ -f /etc/almalinux-release ] ; then
+    DIST='AlmaLinux'
+    #PSEUDONAME=$(cat /etc/almalinux-release | sed s/.*\(// | sed s/\)//)
+    REV=$(cat /etc/almalinux-release | sed s/.*release\ // | sed s/\ .*//)
 
   elif [ -f /etc/mandrake-release ] ; then
     DIST='Mandrake'
@@ -145,6 +152,10 @@ elif [ "${OS}" = "FreeBSD" ] ; then
   else
     OSSTR=$(/usr/bin/uname -mior)
   fi
+fi
+
+if [ -f /etc/vpp/startup.conf ]; then
+  OSSTR="VPP ${OSSTR}"
 fi
 
 echo "${OSSTR}"
