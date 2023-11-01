@@ -233,7 +233,7 @@ def main():
     # Execute wg command on each discovered interface and parse output. We skip the first line
     # ("[1:]") since that's the wireguard server's public key declaration.
     for interface in wg_intfs:
-        wg_cmd_dump = wg_cmd + ["show"] + [interface] + ["dump"]
+        wg_cmd_dump = ["sudo"] + wg_cmd + ["show"] + [interface] + ["dump"]
         output_data["data"][interface] = {}
         for line in command_executor(wg_cmd_dump).decode("utf-8").split("\n")[1:]:
             if not line:
